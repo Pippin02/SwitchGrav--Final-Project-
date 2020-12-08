@@ -13,7 +13,7 @@ namespace SwitchGrav
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         Point screenSize = new Point(1600, 900);                                         //Two integers that define the size of the window
-        int currentLevel = 3;                                                           //Integer for the current level number
+        int currentLevel = 0;                                                           //Integer for the current level number
         int lives = 3;                                                                  //Number of player lives
         int circuitCount = 0;                                                           //Number of levels completed
         bool gameOver = false;                                                          //Set to true if player is out of lives
@@ -92,29 +92,7 @@ namespace SwitchGrav
                 starNum++;
             }
 
-            if (!gameOver)
-            {
-                if (gravityOn)
-                {
-                    if (gravTimer > 0)
-                        gravTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds * 2;
-                    else
-                    {
-                        gravityOn = false;
-                        gravDown.Play();
-                    }
-                }
-                else
-                {
-                    if (gravTimer < maxTimer)
-                        gravTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    else
-                    {
-                        gravityOn = true;
-                        gravUp.Play();
-                    }
-                }
-            }
+            gravityOn = changeGravity(gameTime);
 
             foreach(StarSprite star in stars)
             {
@@ -286,6 +264,34 @@ namespace SwitchGrav
             levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3 + 64, 300 - 64), false));
             circuitPos.Add(new Vector2((screenSize.X / 3), 275));
             startPos.Add(new Vector2(screenSize.X / 3, 595));
+        }
+
+        bool changeGravity(GameTime gameTime)
+        {
+            if (!gameOver)
+            {
+                if (gravityOn)
+                {
+                    if (gravTimer > 0)
+                        gravTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds * 2;
+                    else
+                    {
+                        gravDown.Play();
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (gravTimer < maxTimer)
+                        gravTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    else
+                    {
+                        gravUp.Play();
+                        return true;
+                    }
+                }
+            }
+            return gravityOn;
         }
     }
 }
