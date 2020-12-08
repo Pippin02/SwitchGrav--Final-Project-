@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav\\SwitchGrav\\SwitchGrav.csproj": {}
+    "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav--Final-Project-\\SwitchGrav\\SwitchGrav\\SwitchGrav.csproj": {}
   },
   "projects": {
-    "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav\\SwitchGrav\\SwitchGrav.csproj": {
+    "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav--Final-Project-\\SwitchGrav\\SwitchGrav\\SwitchGrav.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav\\SwitchGrav\\SwitchGrav.csproj",
+        "projectUniqueName": "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav--Final-Project-\\SwitchGrav\\SwitchGrav\\SwitchGrav.csproj",
         "projectName": "SwitchGrav",
-        "projectPath": "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav\\SwitchGrav\\SwitchGrav.csproj",
+        "projectPath": "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav--Final-Project-\\SwitchGrav\\SwitchGrav\\SwitchGrav.csproj",
         "packagesPath": "C:\\Users\\jayjf\\.nuget\\packages\\",
-        "outputPath": "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav\\SwitchGrav\\obj\\",
+        "outputPath": "D:\\College\\Edinburgh\\Games\\Semester 1 Final Project\\SwitchGrav--Final-Project-\\SwitchGrav\\SwitchGrav\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

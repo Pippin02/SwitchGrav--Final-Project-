@@ -13,7 +13,7 @@ namespace SwitchGrav
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         Point screenSize = new Point(1600, 900);                                         //Two integers that define the size of the window
-        int currentLevel = 0;                                                           //Integer for the current level number
+        int currentLevel = 3;                                                           //Integer for the current level number
         int lives = 3;                                                                  //Number of player lives
         int circuitCount = 0;                                                           //Number of levels completed
         bool gameOver = false;                                                          //Set to true if player is out of lives
@@ -26,7 +26,7 @@ namespace SwitchGrav
 
         Texture2D backTex, circuitSheet, platformSheet, whiteBox, playerSheet;          //Define all Texture2Ds in the game
         SpriteFont font, bigFont;                                                       //Define fonts for the UI
-        public SoundEffect jumpSound, deathSound, circuitSound;                         //Define sound effects
+        public SoundEffect jumpSound, deathSound, circuitSound, gravUp, gravDown;       //Define sound effects
 
         List<Vector2> startPos = new List<Vector2>();                                   //List of player starting locations for each level
         PlayerSprite player;                                                            //Define player as a PlayerSprite
@@ -62,15 +62,17 @@ namespace SwitchGrav
             font = Content.Load<SpriteFont>("Font1");                                       //Load font file for UI
             bigFont = Content.Load<SpriteFont>("BigFont");                                  //Load big font file for game over
             jumpSound = Content.Load<SoundEffect>("JumpSound");                             //Load jump sound
-            //deathSound = Content.Load<SoundEffect>("DeathSound");                         //Load death sound
-            //circuitSound = Content.Load<SoundEffect>("circuitSound");                     //Load circuit collction sound
+            deathSound = Content.Load<SoundEffect>("DeathSound");                           //Load death sound
+            circuitSound = Content.Load<SoundEffect>("CircuitSound");                       //Load circuit collction sound
+            gravUp = Content.Load<SoundEffect>("GravUp");                                   //Gravity switching on sound
+            gravDown = Content.Load<SoundEffect>("GravDown");                               //Gravity switching off sound
 
             whiteBox = new Texture2D(GraphicsDevice, 1, 1);                                 //Create empty sprite for drawing collision (1 by 1 pixel only)
             whiteBox.SetData(new[] { Color.White });                                        //Fill collision sprite with a white pixel
 
             BuildLevels();                                                                  //Run BuildLevels (places all platforms for current level)
 
-            player = new PlayerSprite(playerSheet, whiteBox, startPos[0]);                  //Create player
+            player = new PlayerSprite(playerSheet, whiteBox, startPos[currentLevel]);       //Create player
             circuit = new CircuitSprite(circuitSheet, whiteBox, circuitPos[currentLevel]);  //Create circuit sprite
             for(int i = 0; i < 50; i++)                                                     //Add first stars for background
             {
@@ -90,19 +92,28 @@ namespace SwitchGrav
                 starNum++;
             }
 
-            if (gravityOn)
+            if (!gameOver)
             {
-                if (gravTimer > 0)
-                    gravTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (gravityOn)
+                {
+                    if (gravTimer > 0)
+                        gravTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds * 2;
+                    else
+                    {
+                        gravityOn = false;
+                        gravDown.Play();
+                    }
+                }
                 else
-                    gravityOn = false;
-            }
-            else
-            {
-                if (gravTimer < maxTimer)
-                    gravTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                else
-                    gravityOn = true;
+                {
+                    if (gravTimer < maxTimer)
+                        gravTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    else
+                    {
+                        gravityOn = true;
+                        gravUp.Play();
+                    }
+                }
             }
 
             foreach(StarSprite star in stars)
@@ -119,7 +130,7 @@ namespace SwitchGrav
 
             if (!gameOver)
             {
-                player.Update(gameTime, levels[0], jumpSound, gravityOn);                   //Update player
+                player.Update(gameTime, levels[currentLevel], jumpSound, gravityOn);                   //Update player
 
                 if (player.spritePos.Y - 150 > screenSize.Y)
                 {
@@ -130,7 +141,7 @@ namespace SwitchGrav
                         circuit.randomSprite();
                         gravityOn = true;
                         gravTimer = maxTimer;
-                        //deathSound.Play();
+                        deathSound.Play();
                     }
                     if (lives == 0)
                     {
@@ -148,7 +159,7 @@ namespace SwitchGrav
                     circuit.randomSprite();
                     gravityOn = true;
                     gravTimer = maxTimer;
-                    //circuitSound.Play();
+                    circuitSound.Play();
                     if (circuitCount == 9)
                     {
                         circuitCount = 0;
@@ -184,35 +195,42 @@ namespace SwitchGrav
             foreach (StarSprite star in stars)
                 star.Draw(_spriteBatch, gameTime);
 
-            //_spriteBatch.DrawString(font, gravTimer.ToString(), new Vector2(50, 50), Color.White);
-
-            if (gravityOn) gravString = "on";
-            else gravString = "off";
-            if (gravityOn) gravColor = Color.Green;
-            else gravColor = Color.Red;
-            gravPercent = gravTimer / maxTimer;
-            gravWidth = 196 * gravPercent;
-
-            _spriteBatch.Draw(whiteBox, new Rectangle(screenSize.X / 2 - 100, 5, 200, 20), new Rectangle(0, 0, 1, 1), Color.White);
-            _spriteBatch.Draw(whiteBox, new Rectangle(screenSize.X / 2 - 98, 7, (int)gravWidth, 16), new Rectangle(0, 0, 1, 1), gravColor);
-            Vector2 gravSize = font.MeasureString("gravity" + gravString);
-            _spriteBatch.DrawString(font, "Gravity " + gravString, new Vector2(screenSize.X / 2 - gravSize.X / 2 - 9, 11), Color.Gray);
-            _spriteBatch.DrawString(font, "Gravity " + gravString, new Vector2(screenSize.X / 2 - gravSize.X / 2 - 6, 14), Color.White);
-
-            for (int i = 0; i < lives; i++)
-                livesString = livesString + "I";
-            _spriteBatch.DrawString(font, "Lives: " + livesString, new Vector2(8, -10), Color.Gray);
-            _spriteBatch.DrawString(font, "Lives: " + livesString, new Vector2(5, -13), Color.White);
-
-            Vector2 circuitTextSize = font.MeasureString("circuits: " + circuitCount.ToString());
-            _spriteBatch.DrawString(font, "circuits: " + circuitCount.ToString(), new Vector2(screenSize.X - circuitTextSize.X - 8, -13), Color.Gray);
-            _spriteBatch.DrawString(font, "circuits: " + circuitCount.ToString(), new Vector2(screenSize.X - circuitTextSize.X - 5, -10), Color.White);
-
             if (!gameOver)
             {
-                Vector2 textSize = font.MeasureString("collect 10 circuits for another life!");
-                _spriteBatch.DrawString(font, "collect 10 circuits for another life!", new Vector2(screenSize.X / 2 - (textSize.X / 2) - 3, screenSize.Y - 55), Color.Gray);
-                _spriteBatch.DrawString(font, "collect 10 circuits for another life!", new Vector2(screenSize.X / 2 - (textSize.X / 2), screenSize.Y - 52), Color.White);
+
+                if (gravityOn) gravString = "on";
+                else gravString = "off";
+                if (gravityOn) gravColor = Color.Green;
+                else gravColor = Color.Red;
+                gravPercent = gravTimer / maxTimer;
+                gravWidth = 196 * gravPercent;
+
+                _spriteBatch.Draw(whiteBox, new Rectangle(screenSize.X / 2 - 100, 5, 200, 20), new Rectangle(0, 0, 1, 1), Color.White);
+                _spriteBatch.Draw(whiteBox, new Rectangle(screenSize.X / 2 - 98, 7, (int)gravWidth, 16), new Rectangle(0, 0, 1, 1), gravColor);
+                Vector2 gravSize = font.MeasureString("gravity" + gravString);
+                _spriteBatch.DrawString(font, "Gravity " + gravString, new Vector2(screenSize.X / 2 - gravSize.X / 2 - 9, 11), Color.Gray);
+                _spriteBatch.DrawString(font, "Gravity " + gravString, new Vector2(screenSize.X / 2 - gravSize.X / 2 - 6, 14), Color.White);
+
+                for (int i = 0; i < lives; i++)
+                    livesString = livesString + "I";
+                _spriteBatch.DrawString(font, "Lives: " + livesString, new Vector2(8, -10), Color.Gray);
+                _spriteBatch.DrawString(font, "Lives: " + livesString, new Vector2(5, -13), Color.White);
+
+                Vector2 circuitTextSize = font.MeasureString("circuits: " + circuitCount.ToString());
+                _spriteBatch.DrawString(font, "circuits: " + circuitCount.ToString(), new Vector2(screenSize.X - circuitTextSize.X - 8, -13), Color.Gray);
+                _spriteBatch.DrawString(font, "circuits: " + circuitCount.ToString(), new Vector2(screenSize.X - circuitTextSize.X - 5, -10), Color.White);
+
+                if (currentLevel == 0)
+                {
+                    _spriteBatch.DrawString(font, "<--- The gravity circuit's broken!\n     Grab the circuit boards to fix it!", new Vector2(637, 227), Color.Gray);
+                    _spriteBatch.DrawString(font, "<--- The gravity circuit's broken!\n     Grab the circuit boards to fix it!", new Vector2(640, 230), Color.White);
+                }
+                else if (currentLevel == 1)
+                {
+                    Vector2 textSize = font.MeasureString("collect 10 circuits for another life!");
+                    _spriteBatch.DrawString(font, "collect 10 circuits for another life!", new Vector2(screenSize.X / 2 - (textSize.X / 2) - 3, 300), Color.Gray);
+                    _spriteBatch.DrawString(font, "collect 10 circuits for another life!", new Vector2(screenSize.X / 2 - (textSize.X / 2), 300), Color.White);
+                }
 
                 player.Draw(_spriteBatch, gameTime);                                        //Draw player
 
@@ -236,14 +254,38 @@ namespace SwitchGrav
         }
 
         void BuildLevels()
-        {                                                                                                                                   //Place platforms for specific level
+        {
+            //Level 0
+            levels.Add(new List<PlatformSprite>());
+            levels[0].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(600, 650), true));
+            circuitPos.Add(new Vector2(600, 250));
+            startPos.Add(new Vector2(600, 645));
+
+            //Level 1
             levels.Add(new List<PlatformSprite>());                                                                                         //Add first level
-            levels[0].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2((screenSize.X / 3) + 15, screenSize.Y / 2)));             //Add first platform
-            levels[0].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(((screenSize.X / 3) * 2) - 15, screenSize.Y / 2)));       //Add second platform
-
+            levels[1].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2((screenSize.X / 3) + 15, screenSize.Y / 2), true));       //Add first platform
+            levels[1].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(((screenSize.X / 3) * 2) - 15, screenSize.Y / 2), true)); //Add second platform
             circuitPos.Add(new Vector2(((screenSize.X / 3) * 2) - 15, screenSize.Y / 2 - 60));                                              //Add first level's circuit
-
             startPos.Add(new Vector2(screenSize.X / 3, screenSize.Y / 2 - 5));                                                              //Define starting position for the player
+
+            //Level 2
+            levels.Add(new List<PlatformSprite>());
+            levels[2].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(200, 600), true));
+            levels[2].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(500, 500), true));
+            levels[2].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(596, 500), true));
+            levels[2].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(600, 225), false));
+            circuitPos.Add(new Vector2(1000, 475));
+            startPos.Add(new Vector2(200, 595));
+
+            //Level 3
+            levels.Add(new List<PlatformSprite>());
+            levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3, 600), true));
+            levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(((screenSize.X / 3) * 2), 450), true));
+            levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3, 300), true));
+            levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3 - 64, 300 - 64), false));
+            levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3 + 64, 300 - 64), false));
+            circuitPos.Add(new Vector2((screenSize.X / 3), 275));
+            startPos.Add(new Vector2(screenSize.X / 3, 595));
         }
     }
 }

@@ -23,8 +23,9 @@ namespace SwitchGrav
             anims = new List<List<Rectangle>>();            //Initialize 2D list for sprite animations
             anims.Add(new List<Rectangle>());               //Add empty animation
             anims[0].Add(new Rectangle(0, 0, 48, 48));      //Add first image
-            anims[0].Add(new Rectangle(48, 0, 48, 48));     //Add first image
-            anims[0].Add(new Rectangle(96, 0, 48, 48));     //Add first image
+            anims[0].Add(new Rectangle(48, 0, 48, 48));     //Add second image
+            anims[0].Add(new Rectangle(96, 0, 48, 48));     //Add third image
+            anims[0].Add(new Rectangle(48, 0, 48, 48));     //Add fourth image
         }
 
         public void randomSprite()

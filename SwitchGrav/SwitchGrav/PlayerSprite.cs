@@ -56,15 +56,15 @@ namespace SwitchGrav
 
         public void Update(GameTime gameTime, List<PlatformSprite> platforms, SoundEffect jumpSound, bool grav)
         {
-            KeyboardState keyboardState = Keyboard.GetState();                                          //Get current state of the keyboard
-            GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);                              //Get current state of the controller
+            KeyboardState keyboardState = Keyboard.GetState();                                                  //Get current state of the keyboard
+            GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);                                      //Get current state of the controller
 
             if (grav)
             {
-                if (!jumpPressed && !jumping && !falling &&                                                  //If the player can jump
+                if (!jumpPressed && !jumping && !falling &&                                                     //If the player can jump
                     (keyboardState.IsKeyDown(Keys.Space) || gamePadState.IsButtonDown(Buttons.A)))
                 {
-                    jumpPressed = true;                                                                     //Jump
+                    jumpPressed = true;                                                                         //Jump
                     jumping = true;
                     walking = false;
                     falling = false;
@@ -101,11 +101,11 @@ namespace SwitchGrav
                         spriteVel.Y += gravStr * (float)gameTime.ElapsedGameTime.TotalSeconds;      //If player is falling or jumping, increase player's velocity downwards until max is reached
             }
 
-            spritePos += spriteVel;                                                 //Update player's position based on velocity
+            spritePos += spriteVel;                                                                 //Update player's position based on velocity
 
             bool hasCollided = false;
 
-            foreach (PlatformSprite platform in platforms)                           //Check for collision on all sides of the player
+            foreach (PlatformSprite platform in platforms)                                          //Check for collision on all sides of the player
             {
                 if (checkCollisionBelow(platform))
                 {
@@ -164,14 +164,14 @@ namespace SwitchGrav
                 }
             }
         }
-        public void resetPlayer(Vector2 newPos)         //Function to reset player position
+        public void resetPlayer(Vector2 newPos)             //Function to reset player position
         {
-            spritePos = newPos;                         //Set sprite position
-            spriteVel = new Vector2();                  //Set player's velocity to nothing
-            jumping = false;                            //Set not jumping
-            walking = false;                            //Set not walking
-            falling = true;                             //Set not falling
-            jumpPressed = false;                        //Set jump button to not pressed
+            spritePos = newPos;                             //Set sprite position
+            spriteVel = new Vector2();                      //Set player's velocity to nothing
+            jumping = false;                                //Set not jumping
+            walking = false;                                //Set not walking
+            falling = true;                                 //Set not falling
+            jumpPressed = false;                            //Set jump button to not pressed
         }
     }
 }
