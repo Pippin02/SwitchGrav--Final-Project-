@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SwitchGrav</id>
+    <version>1.0.0</version>
+    <authors>SwitchGrav</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="MonoGame.Content.Builder.Task" version="3.8.0.1641" exclude="Build,Analyzers" />
+        <dependency id="MonoGame.Framework.DesktopGL" version="3.8.0.1641" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/BigFont.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/circuitSheet.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/CircuitSound.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/DeathSound.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/doorSheet.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/Font1.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/GravDown.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/GravUp.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/JumpSound.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/platformSheet.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/Player Sheet.xnb" buildAction="Content" />
+      <files include="any/netcoreapp3.1/Content/bin/DesktopGL/Content/PlayerSheet.xnb" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\SwitchGrav.runtimeconfig.json" target="lib\netcoreapp3.1\SwitchGrav.runtimeconfig.json" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\SwitchGrav.dll" target="lib\netcoreapp3.1\SwitchGrav.dll" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\BigFont.xnb" target="content\Content\bin\DesktopGL\Content\BigFont.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\BigFont.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\BigFont.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\circuitSheet.xnb" target="content\Content\bin\DesktopGL\Content\circuitSheet.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\circuitSheet.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\circuitSheet.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\CircuitSound.xnb" target="content\Content\bin\DesktopGL\Content\CircuitSound.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\CircuitSound.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\CircuitSound.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\DeathSound.xnb" target="content\Content\bin\DesktopGL\Content\DeathSound.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\DeathSound.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\DeathSound.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\doorSheet.xnb" target="content\Content\bin\DesktopGL\Content\doorSheet.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\doorSheet.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\doorSheet.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\Font1.xnb" target="content\Content\bin\DesktopGL\Content\Font1.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\Font1.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\Font1.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\GravDown.xnb" target="content\Content\bin\DesktopGL\Content\GravDown.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\GravDown.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\GravDown.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\GravUp.xnb" target="content\Content\bin\DesktopGL\Content\GravUp.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\GravUp.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\GravUp.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\JumpSound.xnb" target="content\Content\bin\DesktopGL\Content\JumpSound.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\JumpSound.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\JumpSound.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\platformSheet.xnb" target="content\Content\bin\DesktopGL\Content\platformSheet.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\platformSheet.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\platformSheet.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\Player Sheet.xnb" target="content\Content\bin\DesktopGL\Content\Player Sheet.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\Player Sheet.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\Player Sheet.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\PlayerSheet.xnb" target="content\Content\bin\DesktopGL\Content\PlayerSheet.xnb" />
+    <file src="D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\Content\bin\DesktopGL\Content\PlayerSheet.xnb" target="contentFiles\any\netcoreapp3.1\Content\bin\DesktopGL\Content\PlayerSheet.xnb" />
+  </files>
+</package>

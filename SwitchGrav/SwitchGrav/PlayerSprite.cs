@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Audio;
+using System.Linq;
 
 namespace SwitchGrav
 {
@@ -61,10 +62,10 @@ namespace SwitchGrav
 
             if (grav)
             {
-                if (!jumpPressed && !jumping && !falling &&                                                     //If the player can jump
+                if (!jumpPressed && !jumping && !falling &&                                                         //If the player can jump
                     (keyboardState.IsKeyDown(Keys.Space) || gamePadState.IsButtonDown(Buttons.A)))
                 {
-                    jumpPressed = true;                                                                         //Jump
+                    jumpPressed = true;                                                                             //Jump
                     jumping = true;
                     walking = false;
                     falling = false;
@@ -97,8 +98,8 @@ namespace SwitchGrav
                     spriteVel.X = 0;
                 }
 
-                    if ((falling || jumping) && spriteVel.Y < 500)
-                        spriteVel.Y += gravStr * (float)gameTime.ElapsedGameTime.TotalSeconds;      //If player is falling or jumping, increase player's velocity downwards until max is reached
+                if ((falling || jumping) && spriteVel.Y < 500)
+                    spriteVel.Y += gravStr * (float)gameTime.ElapsedGameTime.TotalSeconds;              //If player is falling or jumping, increase player's velocity downwards until max is reached
             }
 
             spritePos += spriteVel;                                                                 //Update player's position based on velocity
@@ -109,37 +110,64 @@ namespace SwitchGrav
             {
                 if (checkCollisionBelow(platform))
                 {
-                    hasCollided = true;
+                    if (grav)
+                    {
+                        hasCollided = true;
+                        while (checkCollision(platform))
+                            spritePos.Y--;
 
-                    while (checkCollision(platform))
-                        spritePos.Y--;
-
-                    spriteVel.Y = 0;
-                    jumping = false;
-                    falling = false;
+                        spriteVel.Y = 0;
+                        jumping = false;
+                        falling = false;
+                    }
+                    else
+                    {
+                        spriteVel.Y *= -1;
+                    }
                 }
                 else if (checkCollisionAbove(platform))
                 {
-                    hasCollided = true;
-                    while (checkCollision(platform)) spritePos.Y++;
-                    spriteVel.Y = 0;
-                    jumping = false;
-                    falling = true;
-                }
+                    if (grav)
+                    {
+                        hasCollided = true;
+                        while (checkCollision(platform)) spritePos.Y++;
+                        spriteVel.Y = 0;
+                        jumping = false;
+                        falling = true;
+                    }
+                    else
+                    {
+                        spriteVel.Y *= -1;
+                    }
+            }
 
                 if (checkCollisionLeft(platform))
                 {
-                    hasCollided = true;
-                    while (checkCollision(platform))
-                        spritePos.X--;
-                    spriteVel.X = 0;
-                }
+                    if (grav)
+                    {
+                        hasCollided = true;
+                        while (checkCollision(platform))
+                            spritePos.X--;
+                        spriteVel.X = 0;
+                    }
+                    else
+                    {
+                        spriteVel.X *= -1;
+                    }
+            }
                 else if (checkCollisionRight(platform))
                 {
-                    hasCollided = true;
-                    while (checkCollision(platform))
-                        spritePos.X++;
-                    spriteVel.X = 0;
+                    if (grav)
+                    {
+                        hasCollided = true;
+                        while (checkCollision(platform))
+                            spritePos.X++;
+                        spriteVel.X = 0;
+                    }
+                    else
+                    {
+                        spriteVel.X *= -1;
+                    }
                 }
 
                 if (!hasCollided && walking)
