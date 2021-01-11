@@ -38,9 +38,11 @@ D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\S
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\GravDown.xnb
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\GravUp.xnb
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\JumpSound.xnb
-D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\platformSheet.xnb
+D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\music.ogg
+D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\music.xnb
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\Player Sheet.xnb
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\PlayerSheet.xnb
+D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\platformSheet.xnb
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\SwitchGrav.exe
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\SwitchGrav.deps.json
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\SwitchGrav.runtimeconfig.json
@@ -64,5 +66,3 @@ D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\S
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\obj\Debug\netcoreapp3.1\SwitchGrav.dll
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\obj\Debug\netcoreapp3.1\SwitchGrav.pdb
 D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\obj\Debug\netcoreapp3.1\SwitchGrav.genruntimeconfig.cache
-D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\music.ogg
-D:\College\Edinburgh\Games\Semester 1 Final Project\SwitchGrav--Final-Project-\SwitchGrav\SwitchGrav\bin\Debug\netcoreapp3.1\Content\music.xnb

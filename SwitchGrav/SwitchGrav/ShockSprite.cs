@@ -16,21 +16,36 @@ namespace SwitchGrav
             spriteOrigin = new Vector2(0f, 1f);           //Set platform's origin to middle bottom
             isColliding = true;                             //Colliding is always true for shockers
             frameTime = 0.05f;
-            //drawCollision = true;
+            drawCollision = false;
 
             anims = new List<List<Rectangle>>();            //Initialize 2D list for sprite animations
             anims.Add(new List<Rectangle>());               //Add empty animation
             if (hor)
             {
-                collisionInsetMin = new Vector2(0.1f, 0.65f);
-                collisionInsetMax = new Vector2(0.1f, 0f);
+                if (!leftSide)
+                {
+                    collisionInsetMin = new Vector2(0.1f, 0.65f);
+                    collisionInsetMax = new Vector2(0.1f, 0f);
 
-                anims[0].Add(new Rectangle(0, 64, 32, 32));
-                anims[0].Add(new Rectangle(32, 64, 32, 32));
-                anims[0].Add(new Rectangle(64, 64, 32, 32));
-                anims[0].Add(new Rectangle(32, 64, 32, 32));
-                anims[0].Add(new Rectangle(64, 64, 32, 32));
-                anims[0].Add(new Rectangle(32, 64, 32, 32));
+                    anims[0].Add(new Rectangle(0, 64, 32, 32));
+                    anims[0].Add(new Rectangle(32, 64, 32, 32));
+                    anims[0].Add(new Rectangle(64, 64, 32, 32));
+                    anims[0].Add(new Rectangle(32, 64, 32, 32));
+                    anims[0].Add(new Rectangle(64, 64, 32, 32));
+                    anims[0].Add(new Rectangle(32, 64, 32, 32));
+                }
+                else
+                {
+                    collisionInsetMin = new Vector2(0.1f, 0f);
+                    collisionInsetMax = new Vector2(0.1f, 0.65f);
+
+                    anims[0].Add(new Rectangle(0, 96, 32, 32));
+                    anims[0].Add(new Rectangle(32, 96, 32, 32));
+                    anims[0].Add(new Rectangle(64, 96, 32, 32));
+                    anims[0].Add(new Rectangle(32, 96, 32, 32));
+                    anims[0].Add(new Rectangle(64, 96, 32, 32));
+                    anims[0].Add(new Rectangle(32, 96, 32, 32));
+                }
             }
             else
             {

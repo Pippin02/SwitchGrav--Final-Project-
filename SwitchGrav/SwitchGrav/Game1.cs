@@ -15,7 +15,7 @@ namespace SwitchGrav
         private SpriteBatch _spriteBatch;
         Point screenSize = new Point(1600, 900);                                            //Two integers that define the size of the window
         int currentLevel = 0, prevLevel = 0;                                                //Integer for the current level number
-        int lives = 3;                                                                      //Number of player lives
+        int lives = 0, startLives = 4;                                                      //Number of player lives
         int circuitCount = 0;                                                               //Number of levels completed
         bool gameOver = true;                                                               //Set to true if player is out of lives
         int starNum = 0;
@@ -88,7 +88,7 @@ namespace SwitchGrav
 
             MediaPlayer.Volume = 0.6f;
             MediaPlayer.IsRepeating = true;
-            // MediaPlayer.Play(music);
+            MediaPlayer.Play(music);
         }
 
         protected override void Update(GameTime gameTime)
@@ -181,7 +181,7 @@ namespace SwitchGrav
                             lives--;
                             circuit.randomSprite();
                             gravityOn = true;
-                            gravTimer = maxTimer; 
+                            gravTimer = maxTimer;
                             deathSound.Play();
                         }
                         if (lives == 0)
@@ -197,11 +197,11 @@ namespace SwitchGrav
                 {
                     if (gameOverType == 0)
                         gameOverType = 1;
-                    currentLevel = 2;
+                    currentLevel = 0;
                     player.resetPlayer(startPos[currentLevel]);
                     circuit.spritePos = circuitPos[currentLevel];
                     circuitCount = 0;
-                    lives = 3;
+                    lives = startLives;
                     gameOver = false;
                 }
             }
@@ -333,8 +333,8 @@ namespace SwitchGrav
             levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3, 600), true));
             levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(((screenSize.X / 3) * 2), 450), true));
             levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3, 300), true));
-            levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3 - 80, 300 - 64), false));
-            levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3 + 80, 300 - 64), false));
+            levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3 - 80, 300 - 16), false));
+            levels[3].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 3 + 45, 300 - 16), false));
             circuitPos.Add(new Vector2((screenSize.X / 3), 275));
             startPos.Add(new Vector2(screenSize.X / 3, 595));
 
@@ -349,14 +349,14 @@ namespace SwitchGrav
                 levels[4].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(pos, 300), true));
                 pos += 96;
             }
-            pos = (screenSize.Y / 2) + 96;
+            pos = (screenSize.Y / 2) + 120;
             for (int i = 0; i < 2; i++)
             {
-                levels[4].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2((screenSize.X / 2) + 17, pos), false));
+                levels[4].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2((screenSize.X / 2), pos), false));
                 pos -= 96;
             }
-            shocks[4].Add(new ShockSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 2, pos + 97), true, true));
-            circuitPos.Add(new Vector2((screenSize.X / 2) + 300, 550));
+            shocks[4].Add(new ShockSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 2 - 1, pos + 49), true, false));
+            circuitPos.Add(new Vector2((screenSize.X / 2) + 350, 550));
             startPos.Add(new Vector2((screenSize.X / 2) - 240, 595));
 
             //Level 5
@@ -379,6 +379,18 @@ namespace SwitchGrav
             {
                 levels[5].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(pos, (screenSize.Y / 2) - 124), true));
                 pos += 96;
+            }
+            pos = 350;
+            for (int i = 0; i < 4; i++)
+            {
+                shocks[5].Add(new ShockSprite(platformSheet, whiteBox, new Vector2(pos, (screenSize.Y / 2) - 59), true, true));
+                pos += 250;
+            }
+            pos = 450;
+            for (int i = 0; i < 6; i++)
+            {
+                shocks[5].Add(new ShockSprite(platformSheet, whiteBox, new Vector2(pos, (screenSize.Y / 2) + 96), true, false));
+                pos += 250;
             }
 
         }

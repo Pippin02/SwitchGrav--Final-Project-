@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>D:/College/Edinburgh/Games/Semester 1 Final Project/SwitchGrav--Final-Project-/SwitchGrav/SwitchGrav/Content/GravDown.wav</SourceFile>
+  <SourceTime>2020-12-08T14:29:01.799939+00:00</SourceTime>
+  <DestFile>D:/College/Edinburgh/Games/Semester 1 Final Project/SwitchGrav--Final-Project-/SwitchGrav/SwitchGrav/Content/bin/DesktopGL/GravDown.xnb</DestFile>
+  <DestTime>2021-01-09T02:44:09.4666504+00:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2020-08-10T16:17:54+01:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2020-08-10T16:17:54+01:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

@@ -12,6 +12,7 @@ namespace SwitchGrav
             : base(newSpriteSheet, newCollisionTex, newPos)
         {
             sprite = newSpriteSheet;
+            drawCollision = false;
 
             isColliding = true;                             //Colliding is always true for platforms
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>D:/College/Edinburgh/Games/Semester 1 Final Project/SwitchGrav--Final-Project-/SwitchGrav/SwitchGrav/Content/music.mp3</SourceFile>
+  <SourceTime>2019-02-22T11:42:56+00:00</SourceTime>
+  <DestFile>D:/College/Edinburgh/Games/Semester 1 Final Project/SwitchGrav--Final-Project-/SwitchGrav/SwitchGrav/Content/bin/DesktopGL/music.xnb</DestFile>
+  <DestTime>2021-01-09T02:44:10.7404486+00:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2020-08-10T16:17:54+01:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2020-08-10T16:17:54+01:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>D:/College/Edinburgh/Games/Semester 1 Final Project/SwitchGrav--Final-Project-/SwitchGrav/SwitchGrav/Content/bin/DesktopGL/music.ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>

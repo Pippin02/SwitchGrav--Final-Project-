@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/College/Edinburgh/Games/Semester 1 Final Project/SwitchGrav--Final-Project-/SwitchGrav/SwitchGrav/Content/platformSheet.png</SourceFile>
-  <SourceTime>2021-01-09T02:14:49.0215203+00:00</SourceTime>
-  <DestFile>D:/College/Edinburgh/Games/Semester 1 Final Project/SwitchGrav--Final-Project-/SwitchGrav/SwitchGrav/Content/bin/DesktopGL/Content/platformSheet.xnb</DestFile>
-  <DestTime>2021-01-09T02:17:11.2076015+00:00</DestTime>
+  <SourceFile>D:/College/Edinburgh/Games/Semester 1 Final Project/SwitchGrav--Final-Project-/SwitchGrav/SwitchGrav/Content/PlayerSheet.png</SourceFile>
+  <SourceTime>2020-12-09T15:34:16.7798261+00:00</SourceTime>
+  <DestFile>D:/College/Edinburgh/Games/Semester 1 Final Project/SwitchGrav--Final-Project-/SwitchGrav/SwitchGrav/Content/bin/DesktopGL/PlayerSheet.xnb</DestFile>
+  <DestTime>2021-01-09T02:44:10.7703692+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
