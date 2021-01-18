@@ -10,7 +10,7 @@ namespace SwitchGrav
     class PlayerSprite : Sprite
     {
         bool jumping, walking, falling, jumpPressed, hasCollided;   //is player jumping, walking, falling, has jum,p been pressed, has player sprite collided
-        const float jumpSpeed = 3f, walkSpeed = 150f, gravStr = 10f;               //Constant variables for the player's jump and walk speed
+        const float jumpSpeed = 3f, walkSpeed = 150f, gravStr = 8f;               //Constant variables for the player's jump and walk speed
 
         public PlayerSprite(Texture2D newSpriteSheet, Texture2D newColTex, Vector2 newPos) : base(newSpriteSheet, newColTex, newPos)
         {
@@ -63,7 +63,7 @@ namespace SwitchGrav
             if (grav)
             {
                 if (!jumpPressed && !jumping && !falling &&                                                         //If the player can jump
-                    (keyboardState.IsKeyDown(Keys.Space) || gamePadState.IsButtonDown(Buttons.A)))
+                    (keyboardState.IsKeyDown(Keys.Space) || gamePadState.IsButtonDown(Buttons.A) || (keyboardState.IsKeyDown(Keys.W))))
                 {
                     jumpPressed = true;                                                                             //Jump
                     jumping = true;
