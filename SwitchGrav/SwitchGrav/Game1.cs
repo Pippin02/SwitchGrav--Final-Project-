@@ -344,7 +344,7 @@ namespace SwitchGrav
             levels[4].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2((screenSize.X / 2) - 240, 600), true));
             levels[4].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2((screenSize.X / 2) + 240, 600), true));
             int pos = (screenSize.X / 2) - 96;
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 levels[4].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2(pos, 300), true));
                 pos += 96;
@@ -354,6 +354,12 @@ namespace SwitchGrav
             {
                 levels[4].Add(new PlatformSprite(platformSheet, whiteBox, new Vector2((screenSize.X / 2), pos), false));
                 pos -= 96;
+            }
+            pos = (screenSize.X / 2) - 145;
+            for (int i = 0; i < 9; i++)
+            {
+                shocks[4].Add(new ShockSprite(platformSheet, whiteBox, new Vector2(pos, 301), true, false));
+                pos += 32;
             }
             shocks[4].Add(new ShockSprite(platformSheet, whiteBox, new Vector2(screenSize.X / 2 - 1, pos + 49), true, false));
             circuitPos.Add(new Vector2((screenSize.X / 2) + 350, 550));
@@ -387,7 +393,7 @@ namespace SwitchGrav
                 pos += 250;
             }
             pos = 450;
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 4; i++)
             {
                 shocks[5].Add(new ShockSprite(platformSheet, whiteBox, new Vector2(pos, (screenSize.Y / 2) + 96), true, false));
                 pos += 250;

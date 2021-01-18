@@ -18,8 +18,8 @@ namespace SwitchGrav
             isColliding = true;                                     //Player can collide
             drawCollision = false;                                  //set whether to draw collision box
 
-            collisionInsetMin = new Vector2(0.25f, 0.3f);           //Correction for collision box
-            collisionInsetMax = new Vector2(0.25f, 0.04f);          //^
+            collisionInsetMin = new Vector2(0.15f, 0.3f);           //Correction for collision box
+            collisionInsetMax = new Vector2(0.15f, 0.04f);          //^
 
             frameTime = 0.1f;                                       //How long each frame of animation takes
 
@@ -78,15 +78,18 @@ namespace SwitchGrav
                     jumpPressed = false;
                 }
 
-                if (keyboardState.IsKeyDown(Keys.A) || keyboardState.IsKeyDown(Keys.Left)
-                    || gamePadState.IsButtonDown(Buttons.DPadLeft))
+                if (keyboardState.IsKeyDown(Keys.A) && keyboardState.IsKeyDown(Keys.D))
+                {
+                    walking = false;
+                    spriteVel.X = 0;
+                }
+                else if (keyboardState.IsKeyDown(Keys.A))
                 {
                     walking = true;
                     spriteVel.X = -walkSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     flipped = true;
                 }
-                else if (keyboardState.IsKeyDown(Keys.D) || keyboardState.IsKeyDown(Keys.Right)
-                    || gamePadState.IsButtonDown(Buttons.DPadRight))
+                else if (keyboardState.IsKeyDown(Keys.D))
                 {
                     walking = true;
                     spriteVel.X = walkSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
